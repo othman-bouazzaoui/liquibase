@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    
+    <changeSet id="add_department_table" author="othman">
+        <createTable tableName="department">
+            <column name="id" type="Integer" autoIncrement="true" >
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)"></column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="add_department_to_employee" author="othman">
+        <addColumn tableName="employee" >
+            <column name="department_id" type="Integer"></column>
+        </addColumn>
+        <addForeignKeyConstraint
+                baseTableName="employee"
+                baseColumnNames="department_id"
+                constraintName="department_id"
+                referencedTableName="department"
+                referencedColumnNames="id"
+        />
+    </changeSet>
+
+</databaseChangeLog>

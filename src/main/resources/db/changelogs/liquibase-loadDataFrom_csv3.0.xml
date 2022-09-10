@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="load_data_from_csv_in_department_table" author="othman">
+        <loadUpdateData tableName="department" primaryKey="id" file="db/data/departments.csv" separator=";"></loadUpdateData>
+    </changeSet>
+
+    <changeSet id="load_data_from_csv_in_employee_table" author="othman">
+        <loadUpdateData tableName="employee" primaryKey="employee" file="db/data/employees.csv" separator=";"></loadUpdateData>
+    </changeSet>
+
+</databaseChangeLog>
